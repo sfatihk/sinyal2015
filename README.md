@@ -3,7 +3,6 @@ Seyyid Fatih KOC
 Sinyal İsleme Dersi
 Proje:Matlab ile sentezleme
 
-/--------------------------------------------------------------------------/
 notalar.png : muzik notalarinin solfej tablosundaki gosteriminin bulundugu dosya
 
 notalar.txt : toplam 16 olculuk muzikteki,her olcude bulunan notalar ve notalarin vurus olculerinin bulundugu dosya
