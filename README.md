@@ -11,7 +11,7 @@ note.m : aldigi argumanlara gore sinus sinyali olusturan matlab fonksiyonu
 
 frek.m : nota-oktav ikilisinin frekansini hesaplayan matlab fonksiyonu
 
-sentez.m : ?? muzigin sentezlenecegi matlab dosyası
+sentez.m : muzigin sentezlendigi matlab dosyası
 
 <hr>
 Muzikteki ayni oktavdaki notalar arasinda 2^(n/12)lik,</br>
