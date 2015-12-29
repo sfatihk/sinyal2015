@@ -18,5 +18,5 @@ Muzikteki ayni oktavdaki notalar arasinda 2^(n/12)lik,</br>
 herhangi bir notanin oktavlari arasında 2^n lik bir oran vardir.
 <hr>
 Sentezlenen ses dosyalari:</br>
-https://drive.google.com/file/d/0B-4PeoY8eE9lTkFEOWg1aDZjUE0/view?usp=sharing</br>
-<a href="https://drive.google.com/file/d/0B-4PeoY8eE9lZmh4b3U0d3dNM1E/view?usp=sharing">link</a>
+<a href="https://drive.google.com/file/d/0B-4PeoY8eE9lTkFEOWg1aDZjUE0/view?usp=sharing">5 oktavlik versiyonu</a></br>
+<a href="https://drive.google.com/file/d/0B-4PeoY8eE9lZmh4b3U0d3dNM1E/view?usp=sharing">4 oktavlik versiyonu</a>
