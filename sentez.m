@@ -4,7 +4,7 @@ oktav_ekle=0; %...(-1),0,1...
 muzik_hizi=2; %0.25-0.5-1-2-4-8 ...
 
 Fs=8192; %ornekleme frekansi
-notalar=[]; %notalar matrisi tanimlaniyor
+tum_notalar=[]; %tum_notalar matrisi tanimlaniyor
 
 %her notadan sonra duraklama icin matris tanimlaniyor
 duraklama_tt=linspace(0,1/100,Fs/100); %Fs nin %1 i kadar duraklama
@@ -24,22 +24,22 @@ while ischar(satir) %dosya satir satir okunuyor
     tmp_Matrix=[tmp_xx;tmp_tt]; %sinyal matrise aktariliyor
     
     tmp_Matrix(2,:)=tmp_Matrix(2,:)+zaman; 
-    %sinyal, notalar matrisindeki son zamana kaydiriliyor.boylece yeni gelen sinyal en sona ekleniyor
+    %sinyal, tum_notalar matrisindeki son zamana kaydiriliyor.boylece yeni gelen sinyal en sona ekleniyor
 
-    notalar=cat(2,notalar,tmp_Matrix);
-    %sinyal, notalar matrisine ekleniyor
+    tum_notalar=cat(2,tum_notalar,tmp_Matrix);
+    %sinyal, tum_notalar matrisine ekleniyor
 
-    zaman=notalar(2,end);
+    zaman=tum_notalar(2,end);
     %notalardaki, son zaman cekiliyor
    
     Duraklama(2,:)=Duraklama(2,:)+zaman;
-    notalar=cat(2,notalar,Duraklama);
+    tum_notalar=cat(2,tum_notalar,Duraklama);
     %yeni nota sinyalinin sonuna, duraklama ekleniyor
 
     Duraklama=[duraklama_xx;duraklama_tt];
     %duraklama zaman vektoru sonraki cycle da kullanilmak uzere sifirlaniyor
 
-    zaman=notalar(2,end);
+    zaman=tum_notalar(2,end);
     %duraklamanin ardindan tekrar, son zaman degeri cekiliyor
     
     satir = fgets(dosya);
@@ -50,28 +50,28 @@ sesEcho=zeros(1,int16(Fs/10));
 zamanEcho=linspace(0,1/10,Fs/10);
 %Fs nin %10 kadar echo sesi olusturuluyor
 
-sesEcho=[sesEcho notalar(1,:)];
+sesEcho=[sesEcho tum_notalar(1,:)];
 sesEcho=sesEcho*(30/100);
-%echo sesinin sonuna notalar eklerek,%10xFs kaydirilmis sinyal elde ediliyor
+%echo sesinin sonuna tum_notalar eklerek,%10xFs kaydirilmis sinyal elde ediliyor
 %genlik %30 a dusuruluyor
 
 zamanEcho=zamanEcho+zaman;
-zamanEcho=[notalar(2,:) zamanEcho];
+zamanEcho=[tum_notalar(2,:) zamanEcho];
 
 
 Echo=[sesEcho;zamanEcho];
 
-notalar=cat(2,notalar,zeros(2,int16(Fs/10)));
+tum_notalar=cat(2,tum_notalar,zeros(2,int16(Fs/10)));
 %orijinal ses, echo zamani kadar arttiriliyor
 
-notalar=notalar+Echo;
+tum_notalar=tum_notalar+Echo;
 %orijinal ses, ekolanmis haliyle birlestiriliyor
 
-notalar(1,:)=notalar(1,:)/max(notalar(1,:));
+tum_notalar(1,:)=tum_notalar(1,:)/max(tum_notalar(1,:));
 %notalar genligi en buyuk olan pivot kabul edilerek
 %1 e normalize ediliyor
 
-plot(notalar(2,:),notalar(1,:)); %sinyalin grafigi
-sound(notalar(1,:),8192); % sinyalin calinmasi
+plot(tum_notalar(2,:),tum_notalar(1,:)); %sinyalin grafigi
+sound(tum_notalar(1,:),8192); % sinyalin calinmasi
 
 end
